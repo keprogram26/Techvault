@@ -1,434 +1,75 @@
-/* =====================================================
-VARIABLES
-===================================================== */
+-----<!DOCTYPE html>
+<html lang="es">
 
-const hero =
-document.querySelector(".hero");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techvault</title>
 
-const heroBackground =
-document.querySelector(".hero-background");
 
-const floatingProducts =
-document.querySelectorAll(
-".floating-product"
-);
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="catalogo.html">
+    <link rel="stylesheet" href="producto.css">
+    <link rel="stylesheet" href="contacto.html">
+    <link rel="stylesheet" href="ofertas.html">
+</head>
 
-const zoomSection =
-document.querySelector(
-".zoom-section"
-);
+<body>
 
-const zoomBackground =
-document.querySelector(
-".zoom-background"
-);
+    <!-- BARRA INFORMATIVA -->
+    <div class="contenedor-movimiento">
 
-const zoomContent =
-document.querySelector(
-".zoom-content"
-);
+        <div class="pista">
 
-/* =====================================================
-GALERÍA DE PRODUCTOS
-===================================================== */
+            <!-- PRIMERA REPETICIÓN -->
+            <div class="texto-movil">
+                <span>🇨🇴 Envío GRATIS a todo el país</span>
+                <span class="separador">•</span>
 
-const mainImage =
-document.getElementById(
-"mainProductImage"
-);
+                <span>🚚 Entregas en 3 días hábiles</span>
+                <span class="separador">•</span>
 
-const thumbnails =
-document.querySelectorAll(
-".thumbnail"
-);
+                <span>💳 Compra con ADDI</span>
+                <span class="separador">•</span>
 
-thumbnails.forEach(
-thumbnail => {
+                <span>✨ Paga de forma fácil y segura</span>
+            </div>
 
-```
-    thumbnail.addEventListener(
-        "click",
-        () => {
+            <!-- SEGUNDA REPETICIÓN -->
+            <div class="texto-movil">
+                <span>🇨🇴 Envío GRATIS a todo el país</span>
+                <span class="separador">•</span>
 
-            const image =
-                thumbnail.querySelector(
-                    "img"
-                );
+                <span>🚚 Entregas en 3 días hábiles</span>
+                <span class="separador">•</span>
 
-            if (!image) return;
+                <span>💳 Compra con ADDI</span>
+                <span class="separador">•</span>
 
+                <span>✨ Paga de forma fácil y segura</span>
+            </div>
 
-            mainImage.src =
-                image.src;
+        </div>
 
+    </div>
 
-            thumbnails.forEach(
-                item => {
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <!--opcion menu-->
+        <div class="menu_principal">
+            <h1 style="text-align: left;">TECHVAULT</h1>
+            <div class="Enlaces_principales" style="    margin-left: auto;
+              display: flex; gap: 250px; margin-left: 245px; margin-right:250px;" ;>
+                <a href="catalogo.html">catalogo</a>
+                <a href="ofertas.html">ofertas</a>
+                <a href="contacto.html" style="text-align: right;">contacto</a>
+            </div>
+        </div>
+<div class="portada">
+    <img src="/ChatGPT Image 8 sept 2026, 13_33_03.png" alt="">
+</div>
+    </main>
 
-                    item.classList.remove(
-                        "active"
-                    );
+</body>
 
-                }
-            );
-
-
-            thumbnail.classList.add(
-                "active"
-            );
-
-        }
-    );
-
-}
-```
-
-);
-
-/* =====================================================
-CANTIDAD
-===================================================== */
-
-const quantityElement =
-document.getElementById(
-"quantity"
-);
-
-const increaseButton =
-document.getElementById(
-"increase"
-);
-
-const decreaseButton =
-document.getElementById(
-"decrease"
-);
-
-let quantity = 1;
-
-increaseButton.addEventListener(
-"click",
-() => {
-
-```
-    quantity++;
-
-    quantityElement.textContent =
-        quantity;
-
-}
-```
-
-);
-
-decreaseButton.addEventListener(
-"click",
-() => {
-
-```
-    if (quantity <= 1) return;
-
-    quantity--;
-
-    quantityElement.textContent =
-        quantity;
-
-}
-```
-
-);
-
-/* =====================================================
-CARRITO
-===================================================== */
-
-const addCartButton =
-document.getElementById(
-"addCart"
-);
-
-const cartCount =
-document.getElementById(
-"cartCount"
-);
-
-const notification =
-document.getElementById(
-"notification"
-);
-
-let cartItems = 0;
-
-function showNotification(
-message
-) {
-
-```
-const text =
-    notification.querySelector(
-        "span"
-    );
-
-text.textContent =
-    message;
-
-
-notification.classList.add(
-    "visible"
-);
-
-
-setTimeout(
-    () => {
-
-        notification.classList.remove(
-            "visible"
-        );
-
-    },
-    2500
-);
-```
-
-}
-
-addCartButton.addEventListener(
-"click",
-() => {
-
-```
-    cartItems += quantity;
-
-    cartCount.textContent =
-        cartItems;
-
-
-    showNotification(
-        `${quantity} producto(s) agregado(s) al carrito`
-    );
-
-}
-```
-
-);
-
-/* =====================================================
-COMPRAR AHORA
-===================================================== */
-
-const buyButton =
-document.getElementById(
-"buyNow"
-);
-
-buyButton.addEventListener(
-"click",
-() => {
-
-```
-    cartItems += quantity;
-
-    cartCount.textContent =
-        cartItems;
-
-
-    showNotification(
-        "Producto listo para comprar"
-    );
-
-}
-```
-
-);
-
-/* =====================================================
-EFECTO PARALLAX + ZOOM
-===================================================== */
-
-function updateScroll() {
-
-```
-const scrollY =
-    window.scrollY;
-
-
-/* =================================================
-   HERO
-================================================== */
-
-const heroHeight =
-    hero.offsetHeight;
-
-
-let heroProgress =
-    scrollY / heroHeight;
-
-
-heroProgress =
-    Math.max(
-        0,
-        Math.min(
-            heroProgress,
-            1
-        )
-    );
-
-
-/* =================================================
-   ZOOM DEL FONDO DEL HERO
-================================================== */
-
-const heroScale =
-    1 +
-    heroProgress * 0.15;
-
-
-heroBackground.style.transform =
-    `scale(${heroScale})`;
-
-
-/* =================================================
-   PRODUCTOS FLOTANTES
-================================================== */
-
-floatingProducts.forEach(
-    product => {
-
-        const speed =
-            Number(
-                product.dataset.speed
-            ) || 1;
-
-
-        const movement =
-            scrollY *
-            speed *
-            0.18;
-
-
-        const rotation =
-            scrollY *
-            speed *
-            0.015;
-
-
-        const scale =
-            1 +
-            heroProgress *
-            0.15;
-
-
-        product.style.transform =
-            `
-            translateY(${-movement}px)
-            rotate(${rotation}deg)
-            scale(${scale})
-            `;
-
-    }
-);
-
-
-/* =================================================
-   SECCIÓN DE ZOOM
-================================================== */
-
-const sectionTop =
-    zoomSection.offsetTop;
-
-
-const sectionHeight =
-    zoomSection.offsetHeight;
-
-
-let zoomProgress =
-    (
-        scrollY -
-        sectionTop
-    ) /
-    sectionHeight;
-
-
-zoomProgress =
-    Math.max(
-        0,
-        Math.min(
-            zoomProgress,
-            1
-        )
-    );
-
-
-/* =================================================
-   ZOOM PROFUNDO
-================================================== */
-
-const zoomScale =
-    1 +
-    zoomProgress *
-    2.4;
-
-
-const zoomY =
-    zoomProgress *
-    -100;
-
-
-zoomBackground.style.transform =
-    `
-    scale(${zoomScale})
-    translateY(${zoomY}px)
-    `;
-
-
-/* =================================================
-   TEXTO
-================================================== */
-
-const opacity =
-    Math.min(
-        zoomProgress * 2.5,
-        1
-    );
-
-
-const contentScale =
-    0.8 +
-    zoomProgress * 0.2;
-
-
-const contentY =
-    80 -
-    zoomProgress * 80;
-
-
-zoomContent.style.opacity =
-    opacity;
-
-
-zoomContent.style.transform =
-    `
-    scale(${contentScale})
-    translateY(${contentY}px)
-    `;
-```
-
-}
-
-/* =====================================================
-SCROLL
-===================================================== */
-
-window.addEventListener(
-"scroll",
-updateScroll,
-{
-passive: true
-}
-);
-
-/* =====================================================
-INICIALIZAR
-===================================================== */
-
-updateScroll();
+</html>
