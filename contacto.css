@@ -1,0 +1,605 @@
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(2, 48, 89, 0.15),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #02070d 0%,
+            #061421 50%,
+            #020508 100%
+        );
+
+    color: #ffffff;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+======================================== */
+
+.contenedor {
+    width: 100%;
+    max-width: 1100px;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding: 70px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+/* ========================================
+   EFECTO DE LUZ
+======================================== */
+
+.contenedor::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(8, 124, 255, 0.15),
+        transparent 65%
+    );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ========================================
+   ICONO PRINCIPAL
+======================================== */
+
+.icono-ia {
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #023059,
+        #087cff
+    );
+
+    box-shadow:
+        0 15px 50px rgba(8, 124, 255, 0.35);
+
+    font-size: 42px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ========================================
+   ETIQUETA
+======================================== */
+
+.etiqueta {
+    padding: 8px 18px;
+
+    border: 1px solid rgba(8, 124, 255, 0.45);
+
+    border-radius: 999px;
+
+    background: rgba(8, 124, 255, 0.08);
+
+    color: #4ca3ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 22px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ========================================
+   TITULO
+======================================== */
+
+h1 {
+    position: relative;
+    z-index: 1;
+
+    color: #ffffff;
+
+    font-size: clamp(
+        40px,
+        6vw,
+        72px
+    );
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+h1 span {
+    color: #087cff;
+}
+
+
+/* ========================================
+   LINEA
+======================================== */
+
+.linea {
+    width: 70px;
+    height: 4px;
+
+    margin: 25px 0;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #023059,
+        #087cff
+    );
+
+    box-shadow:
+        0 0 20px rgba(8, 124, 255, 0.5);
+}
+
+
+/* ========================================
+   SUBTITULO
+======================================== */
+
+h2 {
+    position: relative;
+    z-index: 1;
+
+    color: #ffffff;
+
+    font-size: clamp(
+        20px,
+        3vw,
+        30px
+    );
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   DESCRIPCIÓN
+======================================== */
+
+.descripcion {
+    position: relative;
+    z-index: 1;
+
+    max-width: 700px;
+
+    color: #aebdca;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 50px;
+}
+
+.descripcion strong {
+    color: #ffffff;
+}
+
+
+/* ========================================
+   TARJETAS
+======================================== */
+
+.informacion {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+.tarjeta {
+    padding: 35px 25px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    border-radius: 20px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.035
+    );
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(
+        8,
+        124,
+        255,
+        0.45
+    );
+
+    box-shadow:
+        0 20px 50px rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+}
+
+
+/* ========================================
+   ICONOS DE TARJETAS
+======================================== */
+
+.tarjeta-icono {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(
+        8,
+        124,
+        255,
+        0.12
+    );
+
+    font-size: 27px;
+}
+
+
+/* ========================================
+   TEXTO TARJETAS
+======================================== */
+
+.tarjeta h3 {
+    color: #ffffff;
+
+    font-size: 18px;
+
+    margin-bottom: 12px;
+}
+
+
+.tarjeta p {
+    color: #8999a8;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   AVISO
+======================================== */
+
+.aviso {
+    width: 100%;
+    max-width: 750px;
+
+    margin: 35px 0;
+
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border: 1px solid rgba(
+        255,
+        193,
+        7,
+        0.25
+    );
+
+    border-radius: 12px;
+
+    background: rgba(
+        255,
+        193,
+        7,
+        0.06
+    );
+
+    position: relative;
+    z-index: 1;
+}
+
+
+.aviso span {
+    color: #ffc107;
+
+    font-size: 20px;
+}
+
+
+.aviso p {
+    color: #b7c0c8;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   BOTÓN TELEGRAM
+======================================== */
+
+.boton {
+    position: relative;
+    z-index: 1;
+
+    border: 0;
+
+    padding: 17px 32px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        135deg,
+        #023059,
+        #087cff
+    );
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 40px rgba(
+            8,
+            124,
+            255,
+            0.25
+        );
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.boton:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 50px rgba(
+            8,
+            124,
+            255,
+            0.4
+        );
+}
+
+
+.boton:active {
+    transform: scale(0.97);
+}
+
+
+/* ========================================
+   MENSAJE FINAL
+======================================== */
+
+.mensaje-final {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 35px;
+
+    color: #687887;
+
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 800px) {
+
+    .contenedor {
+        padding: 60px 25px;
+    }
+
+    .informacion {
+        grid-template-columns:
+            1fr;
+        
+        max-width: 500px;
+    }
+
+    .tarjeta {
+        padding: 30px 25px;
+    }
+}
+
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+
+    .contenedor {
+        padding: 45px 18px;
+    }
+
+    .icono-ia {
+        width: 75px;
+        height: 75px;
+
+        font-size: 34px;
+    }
+
+    .etiqueta {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+
+        padding: 7px 14px;
+    }
+
+    h1 {
+        font-size: 42px;
+
+        letter-spacing: -1.5px;
+    }
+
+    h2 {
+        font-size: 20px;
+
+        line-height: 1.3;
+    }
+
+    .descripcion {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+    .aviso {
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+    .boton {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+/* ========================================
+   CELULARES PEQUEÑOS
+======================================== */
+
+@media (max-width: 400px) {
+
+    .contenedor {
+        padding: 35px 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .descripcion {
+        font-size: 13px;
+    }
+
+    .tarjeta {
+        padding: 25px 20px;
+    }
+
+}
